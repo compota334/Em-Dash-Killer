@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-marketplace.json",
+  "name": "compota334-plugins",
+  "owner": {
+    "name": "compota334"
+  },
+  "description": "Small, single purpose Claude Code plugins.",
+  "plugins": [
+    {
+      "name": "m-dash-killer",
+      "source": "./plugins/m-dash-killer",
+      "description": "Replaces the em dash (U+2014) with a short hyphen in every file Claude writes, then tells Claude exactly which lines changed so it can fix the punctuation.",
+      "category": "writing",
+      "tags": ["em-dash", "style", "punctuation"]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+
+# Local per developer Claude Code config (relevio hooks, permissions).
+# The session handoffs in docs/handoff/ are tracked on purpose.
+.claude/

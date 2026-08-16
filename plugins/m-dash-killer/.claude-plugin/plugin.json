@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "m-dash-killer",
+  "displayName": "M-Dash Killer",
+  "version": "0.1.0",
+  "description": "Replaces the em dash (U+2014) with a short hyphen in every file Claude writes, then tells Claude exactly which lines changed so it can fix the punctuation.",
+  "author": {
+    "name": "compota334"
+  },
+  "keywords": ["em-dash", "writing", "style", "punctuation", "hooks"],
+  "hooks": "./hooks/hooks.json",
+  "userConfig": {
+    "terminal_guard": {
+      "type": "string",
+      "title": "Terminal command guard",
+      "description": "What to do when a terminal command carries an em dash, which is how the character sneaks into commit messages and PR bodies. 'off' does nothing and is the default. 'block' refuses the command and asks Claude to rewrite it. 'replace' rewrites the command automatically, swapping each em dash for a short hyphen, and warns Claude to check the punctuation before relying on it.",
+      "default": "off"
+    }
+  }
+}
