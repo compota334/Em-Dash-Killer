@@ -8,7 +8,6 @@
     "name": "compota334"
   },
   "keywords": ["em-dash", "writing", "style", "punctuation", "hooks"],
-  "hooks": "./hooks/hooks.json",
   "userConfig": {
     "terminal_guard": {
       "type": "string",

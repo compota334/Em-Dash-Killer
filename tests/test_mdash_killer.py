@@ -385,19 +385,28 @@ class TestPackaging(unittest.TestCase):
         target = os.path.join(REPO_ROOT, entry["source"])
         self.assertTrue(os.path.isdir(target), f"missing plugin dir: {target}")
 
-    def test_plugin_manifest_declares_its_hooks(self):
+    def test_plugin_manifest_does_not_redeclare_its_hooks(self):
         path = os.path.join(
             REPO_ROOT, "plugins", "m-dash-killer", ".claude-plugin", "plugin.json"
         )
         with open(path, encoding="utf-8") as handle:
             data = json.load(handle)
         self.assertEqual(data["name"], "m-dash-killer")
-        hooks_path = os.path.join(REPO_ROOT, "plugins", "m-dash-killer", data["hooks"])
-        self.assertTrue(os.path.isfile(hooks_path), f"missing hooks: {hooks_path}")
         self.assertEqual(
             data["userConfig"]["terminal_guard"]["default"], "off",
             "the terminal guard ships switched off",
         )
+        # hooks/hooks.json is loaded automatically because of where it sits.
+        # Naming it in the manifest as well makes Claude Code load it twice and
+        # the whole plugin fails with "Duplicate hooks file detected".
+        self.assertNotIn(
+            "hooks", data,
+            "the standard hooks/hooks.json must not be declared in the manifest",
+        )
+        hooks_path = os.path.join(
+            REPO_ROOT, "plugins", "m-dash-killer", "hooks", "hooks.json"
+        )
+        self.assertTrue(os.path.isfile(hooks_path), f"missing hooks: {hooks_path}")
 
     def test_hooks_reference_the_real_script(self):
         path = os.path.join(REPO_ROOT, "plugins", "m-dash-killer", "hooks", "hooks.json")
