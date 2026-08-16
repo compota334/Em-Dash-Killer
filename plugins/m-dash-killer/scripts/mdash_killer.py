@@ -71,19 +71,33 @@ PUNCTUATION_MENU = (
     " comma for a short aside"
 )
 
+# The one case the mechanical rule gets wrong on purpose. An em dash glued
+# between two words is almost always punctuation, so a spaced hyphen is the safe
+# default; but occasionally it was standing in for a compound hyphen, and then
+# the spaced version reads as broken. Guessing wrong in this direction is
+# deliberate: "State - of - the - art" is impossible to miss, while a wrongly
+# glued "plan-the real one-works" hides in plain sight.
+COMPOUND_HINT = (
+    "One case to watch: where the em dash was glued between two words with no"
+    " spaces, it may have been standing in for a compound hyphen, as in"
+    " state-of-the-art. If the words read as a single compound, close the gaps"
+    " instead of leaving spaced hyphens."
+)
+
 FIX_INSTRUCTIONS = (
     MECHANICAL_WARNING
     + " Your task now: go to each of those hyphens, read the whole sentence around"
     " it, and if the hyphen is not the punctuation that sentence needs, change it"
     " to the one that is: " + PUNCTUATION_MENU + "."
-    " Leave the short hyphen only where it genuinely works."
+    " Leave the short hyphen only where it genuinely works. " + COMPOUND_HINT
 )
 
 BASH_FIX_INSTRUCTIONS = (
     MECHANICAL_WARNING
     + " Read the sentence this command carries before you rely on it. If the hyphen"
     " is not the punctuation that sentence needs, do not rerun the command as it"
-    " stands: rewrite the wording first, with " + PUNCTUATION_MENU + "."
+    " stands: rewrite the wording first, with " + PUNCTUATION_MENU + ". "
+    + COMPOUND_HINT
 )
 
 DO_NOT_REPEAT = (

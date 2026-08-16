@@ -183,6 +183,8 @@ class TestFilesHook(unittest.TestCase):
         self.assertIn("U+2014", context)
         self.assertIn("SHORT HYPHENS", context)
         self.assertIn("parentheses", context)
+        self.assertIn("state-of-the-art", context,
+                      "the compound word case has to be spelled out")
         self.assertIn(f"{path}:3", context)
         self.assertIn("A plan - a good one.", context)
         self.assertNotIn(EM, result.stdout)

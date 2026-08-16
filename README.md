@@ -41,6 +41,16 @@ punctuation and stays visible.
 Runs of spaces and tabs around the dash are collapsed, so no double spaces are
 left behind. Line endings are preserved exactly: a CRLF file stays CRLF.
 
+### The one case it gets wrong on purpose
+
+Occasionally a glued em dash was standing in for a compound hyphen, and
+`state-of-the-art` comes back as `state - of - the - art`, which reads as
+broken. That is a deliberate trade. Guessing the other way would turn ordinary
+punctuation into `plan-the real one-works`, which hides in plain sight, whereas
+a wrongly spaced compound is impossible to miss and gets fixed on the spot. The
+message the plugin hands Claude names this case explicitly, so it is caught in
+the same pass.
+
 ## Install
 
 ```bash
