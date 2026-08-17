@@ -1,6 +1,10 @@
 __pycache__/
 *.py[cod]
 
-# Local per developer Claude Code config (relevio hooks, permissions).
-# The session handoffs in docs/handoff/ are tracked on purpose.
-.claude/
+# Per developer local config: plugin installs and permission grants.
+.claude/settings.local.json
+
+# Session handoffs are private working notes, not part of the plugin.
+# The folder itself stays tracked through .gitkeep, so a fresh clone still
+# gets a working relevio setup.
+docs/handoff/*.md
