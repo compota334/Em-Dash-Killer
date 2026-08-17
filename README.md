@@ -39,7 +39,7 @@ error.
 ## Install
 
 ```
-/plugin marketplace add compota334/m-dash-killer
+/plugin marketplace add compota334/Em-Dash-Killer
 /plugin install m-dash-killer@compota334-plugins
 ```
 
@@ -47,7 +47,7 @@ Or from a local clone, pointing the marketplace at the directory containing
 `.claude-plugin/`:
 
 ```
-/plugin marketplace add ./m-dash-killer
+/plugin marketplace add ./Em-Dash-Killer
 ```
 
 ## Terminal guard (off by default)

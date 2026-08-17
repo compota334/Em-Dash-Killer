@@ -22,7 +22,7 @@ A PreToolUse hook on Bash commands catches em dashes in shell arguments (commit 
 
 ## Install
 
-/plugin marketplace add compota334/m-dash-killer
+/plugin marketplace add compota334/Em-Dash-Killer
 /plugin install m-dash-killer@compota334-plugins
 
 ## Requirements
