@@ -11,7 +11,7 @@
       "source": "./plugins/m-dash-killer",
       "description": "Replaces the em dash (U+2014) with a short hyphen in every file Claude writes, then tells Claude exactly which lines changed so it can fix the punctuation.",
       "category": "writing",
-      "tags": ["em-dash", "style", "punctuation"]
+      "tags": ["em-dash", "style", "punctuation", "writing", "hooks", "ai-writing", "llm", "claude"]
     }
   ]
 }

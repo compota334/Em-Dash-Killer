@@ -7,7 +7,7 @@
   "author": {
     "name": "compota334"
   },
-  "keywords": ["em-dash", "writing", "style", "punctuation", "hooks"],
+  "keywords": ["em-dash", "writing", "style", "punctuation", "hooks", "ai-writing", "llm", "claude-code", "formatting"],
   "userConfig": {
     "terminal_guard": {
       "type": "string",

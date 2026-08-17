@@ -1,0 +1,34 @@
+# M-Dash Killer
+
+A Claude Code plugin that removes the em dash character (U+2014) from every file Claude writes, then tells Claude which lines changed so it can fix the punctuation properly.
+
+## Problem
+
+Instructing Claude not to use em dashes via prompts or CLAUDE.md does not work reliably. The model forgets the rule often enough that the character keeps appearing in generated files.
+
+## Solution
+
+A PostToolUse hook that runs after every Write, Edit, or MultiEdit call. It scans the file on disk, replaces U+2014 with a spaced short hyphen, and returns a message naming every changed line. Claude is then required to re-read each sentence and apply the correct punctuation.
+
+## Optional terminal guard
+
+A PreToolUse hook on Bash commands catches em dashes in shell arguments (commit messages, PR bodies). Off by default. Can be set to block the command or rewrite it automatically.
+
+## What it does not cover
+
+- Claude's chat replies (conversation text, not files)
+- Files above 5 MB
+- Non-UTF-8 files
+
+## Install
+
+/plugin marketplace add compota334/m-dash-killer
+/plugin install m-dash-killer@compota334-plugins
+
+## Requirements
+
+Claude Code with plugin support. Python 3 on PATH. No external dependencies.
+
+## Source
+
+https://github.com/compota334/Em-Dash-Killer
